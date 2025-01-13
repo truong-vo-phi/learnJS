@@ -1,4 +1,15 @@
-table, th, td {
+/* table, th, td {
     border: 1px solid;
     text-align: center;
-  }
+    border-collapse: collapse;
+  } */
+
+
+
+.score table,
+.score th,
+.score td {
+  border: 1px solid black;
+  text-align: center;
+  border-collapse: collapse;
+}
