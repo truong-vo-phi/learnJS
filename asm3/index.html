@@ -82,7 +82,7 @@
             tr.append(th);
         });
 
-        let stt = 0; // Counter for student rows
+        let soThuTu = 0; // Counter for student rows
 
         // Add student data to the table
         $("#nhap").click(function() {
@@ -97,17 +97,17 @@
                 return;
             }
 
-            stt++;
-            let trNew = $("<tr>").attr("id", `data${stt}`);
+            soThuTu++;
+            let trNew = $("<tr>").attr("id", `data${soThuTu}`);
             table.append(trNew);
 
-            var properties = [stt, HOTEN, DOB, DIEMTOAN, DIEMLY, DIEMHOA, "?", "?"];
+            var properties = [soThuTu, HOTEN, DOB, DIEMTOAN, DIEMLY, DIEMHOA, "?", "?"];
             properties.forEach(property => {
                 let td = $("<td>").text(property);
                 trNew.append(td);
             });
 
-            trNew.find("td:eq(6)").attr("id", `diemTrungBinh${stt}`); // Set ID for average cell
+            trNew.find("td:eq(6)").attr("id", `diemTrungBinh${soThuTu}`); // Set ID for average cell
             trNew.find("td:eq(7)").addClass("hLuc"); // Add class for classification cell
         });
 
@@ -119,26 +119,26 @@
 
         // Calculate the average score
         $("#tinhdiemtrungbinh").click(function() {
-            for (let i = 1; i <= stt; i++) {
-                let row = $(`#data${i}`);
+            for (let currentIndex = 1; currentIndex <= soThuTu; currentIndex++) {
+                let row = $(`#data${currentIndex}`);
                 const DIEMTOAN = parseFloat(row.find("td:eq(3)").text());
                 const DIEMLY = parseFloat(row.find("td:eq(4)").text());
                 const DIEMHOA = parseFloat(row.find("td:eq(5)").text());
 
                 if (!isNaN(DIEMTOAN) && !isNaN(DIEMLY) && !isNaN(DIEMHOA)) {
                     let average = ((DIEMTOAN + DIEMLY + DIEMHOA) / 3).toFixed(2);
-                    row.find("#diemTrungBinh" + i).text(average);
+                    row.find("#diemTrungBinh" + currentIndex).text(average);
                 } else {
-                    alert(`Lỗi ở hàng ${i}: Kiểm tra đầu vào điểm.`);
+                    alert(`Lỗi ở hàng ${currentIndex}: Kiểm tra đầu vào điểm.`);
                 }
             }
         });
 
         // Determine student classification
         $("#xacdinhhocluc").click(function() {
-            for (let i = 1; i <= stt; i++) {
-                let row = $(`#data${i}`);
-                let average = parseFloat(row.find("#diemTrungBinh" + i).text());
+            for (let currentIndex = 1; currentIndex <= soThuTu; currentIndex++) {
+                let row = $(`#data${currentIndex}`);
+                let average = parseFloat(row.find("#diemTrungBinh" + currentIndex).text());
                 let hocLucCell = row.find(".hLuc");
 
                 if (!isNaN(average)) {
