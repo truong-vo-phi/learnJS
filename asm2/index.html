@@ -39,9 +39,9 @@
     function addRow (){
         var tbody = document.getElementById("tbody");
         console.log(tbody)
-        var tr1 = document.createElement("tr");
-        tbody.append(tr1);
-        tr1.id = index;
+        var trNew = document.createElement("tr");
+        tbody.append(trNew);
+        trNew.id = index;
         
         var tdHT = document.createElement("td");
         var tdNgaySinh = document.createElement("td");
@@ -60,13 +60,13 @@
 
         index = index + 1;
 
-        tr1.append(tdHT);
-        tr1.append(tdNgaySinh);
-        tr1.append(tdDiemToan);
-        tr1.append(tdDiemLy);
-        tr1.append(tdDiemHoa);
-        tr1.append(tdDiemTrungBinh);
-        tr1.append(tdHocLuc);
+        trNew.append(tdHT);
+        trNew.append(tdNgaySinh);
+        trNew.append(tdDiemToan);
+        trNew.append(tdDiemLy);
+        trNew.append(tdDiemHoa);
+        trNew.append(tdDiemTrungBinh);
+        trNew.append(tdHocLuc);
 
         tdHT.innerHTML = nhapTen.value;
         tdNgaySinh.innerHTML = nhapNgaySinh.value;
@@ -86,33 +86,33 @@
     let nhapDiemHoa = document.getElementById("diemhoa");
 
     function diemTB(){
-        for (var i = 1; i<index; i++){
-            var llToan = document.getElementById("dToan" + i);
-            var llLy = document.getElementById("dLy" + i);
-            var llHoa = document.getElementById("dHoa" + i);
-            var LLdTrungBinh = document.getElementById("dTrungBinh" + i);
+        for (var currentIndex = 1; currentIndex < index; currentIndex++){
+            var layDiemToan = document.getElementById("dToan" + currentIndex);
+            var layDiemLy = document.getElementById("dLy" + currentIndex);
+            var layDiemHoa = document.getElementById("dHoa" + currentIndex);
+            var laydTrungBinh = document.getElementById("dTrungBinh" + currentIndex);
         
-            console.log(llToan.innerHTML);
-            console.log(llLy.innerHTML);
-            console.log(llHoa.innerHTML);
-            console.log(LLdTrungBinh);
-            LLdTrungBinh.innerHTML = (llLy.innerHTML -(- llHoa.innerHTML) -(- llToan.innerHTML))/3;
+            console.log(layDiemToan.innerHTML);
+            console.log(layDiemLy.innerHTML);
+            console.log(layDiemHoa.innerHTML);
+            console.log(laydTrungBinh);
+            laydTrungBinh.innerHTML = (layDiemLy.innerHTML -(- layDiemHoa.innerHTML) -(- layDiemToan.innerHTML))/3;
         }
     }
 
-    var diemTrungBinh = document.getElementById("tinhdiemtrungbinh");
-    diemTrungBinh.onclick = diemTB;
+    var xdDiemTrungBinh = document.getElementById("tinhdiemtrungbinh");
+    xdDiemTrungBinh.onclick = diemTB;
 
     function hocLuc(){
-        for (var i = 1; i < index; i++){
-            var LLdTrungBinh = document.getElementById("dTrungBinh" + i);
-            var LLHocLuc = document.getElementById("hLuc" + i);
-            if (LLdTrungBinh.innerHTML > 8){
-                LLHocLuc.innerHTML = "<span style='background-color:yellow'> Hoc sinh gioi </span>";
-            } else if (LLdTrungBinh.innerHTML <= 8 && LLdTrungBinh.innerHTML > 6) {
-                LLHocLuc.innerHTML = "<span style='background-color:yellow'> Hoc sinh kha </span>";
+        for (var currentIndex = 1; currentIndex < index; currentIndex++){
+            var laydTrungBinh = document.getElementById("dTrungBinh" + currentIndex);
+            var layHocLuc = document.getElementById("hLuc" + currentIndex);
+            if (laydTrungBinh.innerHTML > 8){
+                layHocLuc.innerHTML = "<span style='background-color:yellow'> Hoc sinh gioi </span>";
+            } else if (laydTrungBinh.innerHTML <= 8 && laydTrungBinh.innerHTML > 6) {
+                layHocLuc.innerHTML = "<span style='background-color:yellow'> Hoc sinh kha </span>";
             } else{
-                LLHocLuc.innerHTML = "<span style='background-color:yellow'> Hoc sinh trung binh </span>";
+                layHocLuc.innerHTML = "<span style='background-color:yellow'> Hoc sinh trung binh </span>";
             }
         }
 
