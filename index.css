@@ -1,0 +1,7 @@
+.score table,
+.score th,
+.score td {
+  border: 1px solid black;
+  text-align: center;
+  border-collapse: collapse;
+}
