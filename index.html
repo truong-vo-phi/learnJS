@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>    
+    <script type="text/javascript" src="http://www.yoursite.com/somewhere/on/your/webserver/jquery-lightbox/scripts/jquery.lightbox.min.js"></script>
+    <link rel="stylesheet" href="./index.css">  
+    <title>Employee List</title>
+</head>
+<body>
+    <div class="table-department" id="department">
+        <h1>Department List</h1>
+    </div>        
+    <hr>
+    <div class="table-departmentStaff" id="departmentStaff">
+        <h1>Department Staff List</h1>
+        <label for="departmentId">Department Id:</label>
+        <input type="text" id="departmentStaffId" placeholder="Example: Dept01->Dept05">
+        <button id="getDepartmentStaff">Get Department Staff</button>
+    </div>
+    <hr>
+    <div class="table-staffsSalary" id="staffsSalary">
+        <h1>Staffs Salary</h1>
+    </div>
+    <hr>
+    <h1>Add New Staff</h1>
+    <p> Thêm nhân viên: Bỏ qua ID</p>
+    <p> Cập nhật nhân viên: Gõ ID và loại thông tin muốn sửa, nhấn Update</p>
+    <p> Xóa nhân viên: Gõ ID và nhấn Delete</p>
+    <form id="staffForm"></form>
+        <div class="col-12 col-md-4 mt-5 ">
+            <table>
+                <th></th>
+                <tbody>
+                    <tr>
+                        <td><label for="numberId">ID:</label></td>
+                        <td><input type="number" id="numberId"></td>
+                        <td><button id="remove">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fullName">Full Name:</label></td>
+                        <td><input type="text" id="fullName"></td>
+                        <td><button id="updateFullName">Update</button></td>
+
+                    </tr>
+                    <tr>
+                            <td><label for="dob">Date of Birth:</label></td>
+                            <td><input type="date" id="dob"></td>
+                            <td><button id="updateDob">Update</button></td>
+
+                    </tr>
+                    <tr>
+                            <td><label for="salaryScale">Salary Scale:</label></td>
+                            <td><input type="number" id="salaryScale"></td>
+                            <td><button id="updateSalaryScale">Update</button></td>
+                    </tr>
+                    <tr>
+                            <td><label for="startDate">Start Date:</label></td>
+                            <td><input type="date" id="startDate"></td>
+                            <td><button id="updateStartDate">Update</button></td>
+                    </tr>
+                    <tr>
+                            <td><label for="departmentId">Department Id:</label></td>
+                            <td><input type="text" id="departmentId"></td>
+                            <td><button id="updateDepartmentId">Update</button></td>
+                    </tr>
+                    <tr>
+                            <td><label for="annualLeave">Annual Leave:</label></td>
+                            <td><input type="number" id="annualLeave"></td>
+                            <td><button id="updateAnnualLeave">Update</button></td>
+                    </tr>   
+                    <tr>
+                            <td><label for="overTime">Overtime Hours:</label></td>
+                            <td><input type="number" id="overTime"></td>
+                            <td><button id="updateOverTime">Update</button></td>
+                    </tr>
+                    <tr>
+                            <td><label for="overTime">Image:</label></td>
+                            <td><input type="url" id="image"></td>
+                            <td><button id="updateImage">Update</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="enter">Summit</button>
+
+    </form>
+    </div>
+    <div>
+        <h1>Employee List</h1>
+        <hr>
+    </div>
+    <main class="cards">
+        <div id="root"></div>
+    </main>
+    <script src="./controllers/staffController.js"></script>
+    <script src="./controllers/departmentController.js"></script>
+    <script src="./controllers/staffSalaryController.js"></script>
+</body>
+</html>
